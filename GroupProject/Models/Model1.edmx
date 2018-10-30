@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Group2DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FlightInfo">
+          <Key>
+            <PropertyRef Name="FlightNum" />
+          </Key>
+          <Property Name="FlightNum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartureAirport" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ArrivalAirport" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DepartureTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="ArrivalTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="DepartureDate" Type="date" Nullable="false" />
+          <Property Name="FlightCapacity" Type="int" Nullable="false" />
+          <Property Name="SingleTicketPrice" Type="money" Nullable="false" />
+          <Property Name="FlightStatus" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Manifest">
+          <Key>
+            <PropertyRef Name="ManifestID" />
+          </Key>
+          <Property Name="ManifestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TicketNum" Type="int" Nullable="false" />
+          <Property Name="FlightNum" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PassengerInfo">
+          <Key>
+            <PropertyRef Name="TicketNum" />
+          </Key>
+          <Property Name="TicketNum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DOB" Type="date" Nullable="false" />
+          <Property Name="SeatNum" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentInfo">
+          <Key>
+            <PropertyRef Name="TransactionNum" />
+          </Key>
+          <Property Name="TransactionNum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SecurityCode" Type="int" Nullable="false" />
+          <Property Name="ExpirationDate" Type="date" Nullable="false" />
+          <Property Name="TotalCostAmount" Type="money" Nullable="false" />
+          <Property Name="CardNum" Type="int" Nullable="false" />
+          <Property Name="ManifestID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Manifest_FlightInfo">
+          <End Role="FlightInfo" Type="Self.FlightInfo" Multiplicity="1" />
+          <End Role="Manifest" Type="Self.Manifest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FlightInfo">
+              <PropertyRef Name="FlightNum" />
+            </Principal>
+            <Dependent Role="Manifest">
+              <PropertyRef Name="FlightNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Manifest_PassengerInfo">
+          <End Role="PassengerInfo" Type="Self.PassengerInfo" Multiplicity="1" />
+          <End Role="Manifest" Type="Self.Manifest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PassengerInfo">
+              <PropertyRef Name="TicketNum" />
+            </Principal>
+            <Dependent Role="Manifest">
+              <PropertyRef Name="TicketNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentInfo_Manifest">
+          <End Role="Manifest" Type="Self.Manifest" Multiplicity="1" />
+          <End Role="PaymentInfo" Type="Self.PaymentInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manifest">
+              <PropertyRef Name="ManifestID" />
+            </Principal>
+            <Dependent Role="PaymentInfo">
+              <PropertyRef Name="ManifestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Group2DBModelStoreContainer">
+          <EntitySet Name="FlightInfo" EntityType="Self.FlightInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manifest" EntityType="Self.Manifest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PassengerInfo" EntityType="Self.PassengerInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentInfo" EntityType="Self.PaymentInfo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Manifest_FlightInfo" Association="Self.FK_Manifest_FlightInfo">
+            <End Role="FlightInfo" EntitySet="FlightInfo" />
+            <End Role="Manifest" EntitySet="Manifest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Manifest_PassengerInfo" Association="Self.FK_Manifest_PassengerInfo">
+            <End Role="PassengerInfo" EntitySet="PassengerInfo" />
+            <End Role="Manifest" EntitySet="Manifest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentInfo_Manifest" Association="Self.FK_PaymentInfo_Manifest">
+            <End Role="Manifest" EntitySet="Manifest" />
+            <End Role="PaymentInfo" EntitySet="PaymentInfo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Group2DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FlightInfo">
+          <Key>
+            <PropertyRef Name="FlightNum" />
+          </Key>
+          <Property Name="FlightNum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartureAirport" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ArrivalAirport" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DepartureTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="ArrivalTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="DepartureDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FlightCapacity" Type="Int32" Nullable="false" />
+          <Property Name="SingleTicketPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="FlightStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Manifests" Relationship="Self.FK_Manifest_FlightInfo" FromRole="FlightInfo" ToRole="Manifest" />
+        </EntityType>
+        <EntityType Name="Manifest">
+          <Key>
+            <PropertyRef Name="ManifestID" />
+          </Key>
+          <Property Name="ManifestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TicketNum" Type="Int32" Nullable="false" />
+          <Property Name="FlightNum" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FlightInfo" Relationship="Self.FK_Manifest_FlightInfo" FromRole="Manifest" ToRole="FlightInfo" />
+          <NavigationProperty Name="PassengerInfo" Relationship="Self.FK_Manifest_PassengerInfo" FromRole="Manifest" ToRole="PassengerInfo" />
+          <NavigationProperty Name="PaymentInfoes" Relationship="Self.FK_PaymentInfo_Manifest" FromRole="Manifest" ToRole="PaymentInfo" />
+        </EntityType>
+        <EntityType Name="PassengerInfo">
+          <Key>
+            <PropertyRef Name="TicketNum" />
+          </Key>
+          <Property Name="TicketNum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SeatNum" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Manifests" Relationship="Self.FK_Manifest_PassengerInfo" FromRole="PassengerInfo" ToRole="Manifest" />
+        </EntityType>
+        <EntityType Name="PaymentInfo">
+          <Key>
+            <PropertyRef Name="TransactionNum" />
+          </Key>
+          <Property Name="TransactionNum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SecurityCode" Type="Int32" Nullable="false" />
+          <Property Name="ExpirationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TotalCostAmount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="CardNum" Type="Int32" Nullable="false" />
+          <Property Name="ManifestID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Manifest" Relationship="Self.FK_PaymentInfo_Manifest" FromRole="PaymentInfo" ToRole="Manifest" />
+        </EntityType>
+        <Association Name="FK_Manifest_FlightInfo">
+          <End Role="FlightInfo" Type="Self.FlightInfo" Multiplicity="1" />
+          <End Role="Manifest" Type="Self.Manifest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FlightInfo">
+              <PropertyRef Name="FlightNum" />
+            </Principal>
+            <Dependent Role="Manifest">
+              <PropertyRef Name="FlightNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Manifest_PassengerInfo">
+          <End Role="PassengerInfo" Type="Self.PassengerInfo" Multiplicity="1" />
+          <End Role="Manifest" Type="Self.Manifest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PassengerInfo">
+              <PropertyRef Name="TicketNum" />
+            </Principal>
+            <Dependent Role="Manifest">
+              <PropertyRef Name="TicketNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentInfo_Manifest">
+          <End Role="Manifest" Type="Self.Manifest" Multiplicity="1" />
+          <End Role="PaymentInfo" Type="Self.PaymentInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manifest">
+              <PropertyRef Name="ManifestID" />
+            </Principal>
+            <Dependent Role="PaymentInfo">
+              <PropertyRef Name="ManifestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Group2DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FlightInfoes" EntityType="Self.FlightInfo" />
+          <EntitySet Name="Manifests" EntityType="Self.Manifest" />
+          <EntitySet Name="PassengerInfoes" EntityType="Self.PassengerInfo" />
+          <EntitySet Name="PaymentInfoes" EntityType="Self.PaymentInfo" />
+          <AssociationSet Name="FK_Manifest_FlightInfo" Association="Self.FK_Manifest_FlightInfo">
+            <End Role="FlightInfo" EntitySet="FlightInfoes" />
+            <End Role="Manifest" EntitySet="Manifests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Manifest_PassengerInfo" Association="Self.FK_Manifest_PassengerInfo">
+            <End Role="PassengerInfo" EntitySet="PassengerInfoes" />
+            <End Role="Manifest" EntitySet="Manifests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentInfo_Manifest" Association="Self.FK_PaymentInfo_Manifest">
+            <End Role="Manifest" EntitySet="Manifests" />
+            <End Role="PaymentInfo" EntitySet="PaymentInfoes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Group2DBModelStoreContainer" CdmEntityContainer="Group2DBEntities">
+          <EntitySetMapping Name="FlightInfoes">
+            <EntityTypeMapping TypeName="Group2DBModel.FlightInfo">
+              <MappingFragment StoreEntitySet="FlightInfo">
+                <ScalarProperty Name="FlightNum" ColumnName="FlightNum" />
+                <ScalarProperty Name="DepartureAirport" ColumnName="DepartureAirport" />
+                <ScalarProperty Name="ArrivalAirport" ColumnName="ArrivalAirport" />
+                <ScalarProperty Name="DepartureTime" ColumnName="DepartureTime" />
+                <ScalarProperty Name="ArrivalTime" ColumnName="ArrivalTime" />
+                <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+                <ScalarProperty Name="FlightCapacity" ColumnName="FlightCapacity" />
+                <ScalarProperty Name="SingleTicketPrice" ColumnName="SingleTicketPrice" />
+                <ScalarProperty Name="FlightStatus" ColumnName="FlightStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manifests">
+            <EntityTypeMapping TypeName="Group2DBModel.Manifest">
+              <MappingFragment StoreEntitySet="Manifest">
+                <ScalarProperty Name="ManifestID" ColumnName="ManifestID" />
+                <ScalarProperty Name="TicketNum" ColumnName="TicketNum" />
+                <ScalarProperty Name="FlightNum" ColumnName="FlightNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PassengerInfoes">
+            <EntityTypeMapping TypeName="Group2DBModel.PassengerInfo">
+              <MappingFragment StoreEntitySet="PassengerInfo">
+                <ScalarProperty Name="TicketNum" ColumnName="TicketNum" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="SeatNum" ColumnName="SeatNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentInfoes">
+            <EntityTypeMapping TypeName="Group2DBModel.PaymentInfo">
+              <MappingFragment StoreEntitySet="PaymentInfo">
+                <ScalarProperty Name="TransactionNum" ColumnName="TransactionNum" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="SecurityCode" ColumnName="SecurityCode" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="TotalCostAmount" ColumnName="TotalCostAmount" />
+                <ScalarProperty Name="CardNum" ColumnName="CardNum" />
+                <ScalarProperty Name="ManifestID" ColumnName="ManifestID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
