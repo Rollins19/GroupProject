@@ -1,0 +1,69 @@
+﻿@model IEnumerable<GroupProject.Models.PaymentInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecurityCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpirationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalCostAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CardNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Manifest.ManifestID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecurityCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpirationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalCostAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CardNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Manifest.ManifestID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TransactionNum }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TransactionNum }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TransactionNum })
+        </td>
+    </tr>
+}
+
+</table>

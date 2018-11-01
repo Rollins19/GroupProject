@@ -1,0 +1,82 @@
+﻿@model GroupProject.Models.FlightInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FlightInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureAirport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureAirport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalAirport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalAirport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightCapacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightCapacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SingleTicketPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SingleTicketPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FlightNum }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

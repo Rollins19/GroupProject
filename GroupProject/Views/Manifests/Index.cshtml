@@ -1,0 +1,39 @@
+﻿@model IEnumerable<GroupProject.Models.Manifest>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightInfo.DepartureAirport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassengerInfo.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlightInfo.DepartureAirport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassengerInfo.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ManifestID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ManifestID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ManifestID })
+        </td>
+    </tr>
+}
+
+</table>
