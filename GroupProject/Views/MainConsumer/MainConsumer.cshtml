@@ -1,0 +1,35 @@
+﻿@model GroupProject.Models.FlightInfo
+@{
+     ViewBag.Title = "MainConsumer";
+     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search For a Flight</h2>
+
+<div class="form-group">
+     @Html.LabelFor(Model => Model.ArrivalAirport, htmlAttributes: new { @class = "control-label col-md-2" })
+     <div class="col-md-10">
+          @Html.DropDownList("ArrivalAirport", null, htmlAttributes: new { @class = "form-control" })
+          @Html.ValidationMessageFor(model => model.ArrivalAirport, "", new { @class = "text-danger" })
+
+     </div>
+</div>
+
+<div class="form-group">
+     @Html.LabelFor(Model => Model.DepartureDate, htmlAttributes: new { @class = "control-label col-md-2" })
+     <div class="col-md-10">
+          @Html.DropDownList("DepartureDate", null, htmlAttributes: new { @class = "form-control" })
+          @Html.ValidationMessageFor(model => model.DepartureDate, "", new { @class = "text-danger" })
+
+     </div>
+</div>
+
+<div class="form-group">
+     @Html.LabelFor(Model => Model.DepartureTime, htmlAttributes: new { @class = "control-label col-md-2" })
+     <div class="col-md-10">
+          @Html.DropDownList("DepartureTime", null, htmlAttributes: new { @class = "form-control" })
+          @Html.ValidationMessageFor(model => model.DepartureTime, "", new { @class = "text-danger" })
+
+     </div>
+</div>
+

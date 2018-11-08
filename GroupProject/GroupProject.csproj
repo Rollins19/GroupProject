@@ -199,6 +199,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FlightInfoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MainConsumerController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManifestsController.cs" />
     <Compile Include="Controllers\PassengerInfoesController.cs" />
@@ -336,6 +337,7 @@
     <Content Include="Views\PaymentInfoes\Details.cshtml" />
     <Content Include="Views\PaymentInfoes\Edit.cshtml" />
     <Content Include="Views\PaymentInfoes\Index.cshtml" />
+    <Content Include="Views\MainConsumer\MainConsumer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
