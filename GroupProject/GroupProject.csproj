@@ -197,6 +197,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CheckFlightStatusController.cs" />
     <Compile Include="Controllers\FlightInfoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MainConsumerController.cs" />
@@ -338,10 +339,10 @@
     <Content Include="Views\PaymentInfoes\Edit.cshtml" />
     <Content Include="Views\PaymentInfoes\Index.cshtml" />
     <Content Include="Views\MainConsumer\MainConsumer.cshtml" />
+    <Content Include="Views\CheckFlightStatus\CheckFlightStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\MainConsumerPage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

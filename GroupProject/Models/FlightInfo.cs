@@ -11,8 +11,9 @@ namespace GroupProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class FlightInfo
+    using System.ComponentModel.DataAnnotations;
+
+     public partial class FlightInfo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public FlightInfo()
@@ -21,13 +22,21 @@ namespace GroupProject.Models
         }
     
         public int FlightNum { get; set; }
+        [Display(Name ="Departure Airport")]
         public string DepartureAirport { get; set; }
+        [Display(Name ="Arrival Airport")]
         public string ArrivalAirport { get; set; }
+        [Display(Name ="Departure Time")]
         public System.TimeSpan DepartureTime { get; set; }
+        [Display(Name = "Arrival Time")]
         public System.TimeSpan ArrivalTime { get; set; }
+        [Display(Name = "Departure Date")]
         public System.DateTime DepartureDate { get; set; }
+        [Display(Name ="Flight Capacity")]
         public int FlightCapacity { get; set; }
+        [Display(Name ="Single Ticket Price")]
         public decimal SingleTicketPrice { get; set; }
+        [Display(Name ="Flight Status")]
         public string FlightStatus { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

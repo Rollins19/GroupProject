@@ -11,6 +11,7 @@ namespace GroupProject.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class PassengerInfo
     {
@@ -21,7 +22,9 @@ namespace GroupProject.Models
         }
     
         public int TicketNum { get; set; }
+        [Display(Name = "First Name")]  
         public string FirstName { get; set; }
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
         public System.DateTime DOB { get; set; }
         public int SeatNum { get; set; }
