@@ -12,12 +12,12 @@ namespace GroupProject.Controllers
 {
     public class ManifestsController : Controller
     {
-        private Group2DBEntities db = new Group2DBEntities();
+        private GroupProject20181102032945_dbEntities db = new GroupProject20181102032945_dbEntities();
 
         // GET: Manifests
         public ActionResult Index()
         {
-            var manifests = db.Manifests.Include(m => m.FlightInfo).Include(m => m.PassengerInfo);
+            var manifests = db.Manifests.Include(m => m.FlightInfo).Include(m => m.PassengerInfo).Include(m => m.PaymentInfo);
             return View(manifests.ToList());
         }
 
@@ -41,6 +41,7 @@ namespace GroupProject.Controllers
         {
             ViewBag.FlightNum = new SelectList(db.FlightInfoes, "FlightNum", "DepartureAirport");
             ViewBag.TicketNum = new SelectList(db.PassengerInfoes, "TicketNum", "FirstName");
+            ViewBag.TransactionNum = new SelectList(db.PaymentInfoes, "TransactionNum", "TransactionNum");
             return View();
         }
 
@@ -49,7 +50,7 @@ namespace GroupProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ManifestID,TicketNum,FlightNum")] Manifest manifest)
+        public ActionResult Create([Bind(Include = "ManifestID,TicketNum,FlightNum,TransactionNum")] Manifest manifest)
         {
             if (ModelState.IsValid)
             {
@@ -60,6 +61,7 @@ namespace GroupProject.Controllers
 
             ViewBag.FlightNum = new SelectList(db.FlightInfoes, "FlightNum", "DepartureAirport", manifest.FlightNum);
             ViewBag.TicketNum = new SelectList(db.PassengerInfoes, "TicketNum", "FirstName", manifest.TicketNum);
+            ViewBag.TransactionNum = new SelectList(db.PaymentInfoes, "TransactionNum", "TransactionNum", manifest.TransactionNum);
             return View(manifest);
         }
 
@@ -77,6 +79,7 @@ namespace GroupProject.Controllers
             }
             ViewBag.FlightNum = new SelectList(db.FlightInfoes, "FlightNum", "DepartureAirport", manifest.FlightNum);
             ViewBag.TicketNum = new SelectList(db.PassengerInfoes, "TicketNum", "FirstName", manifest.TicketNum);
+            ViewBag.TransactionNum = new SelectList(db.PaymentInfoes, "TransactionNum", "TransactionNum", manifest.TransactionNum);
             return View(manifest);
         }
 
@@ -85,7 +88,7 @@ namespace GroupProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ManifestID,TicketNum,FlightNum")] Manifest manifest)
+        public ActionResult Edit([Bind(Include = "ManifestID,TicketNum,FlightNum,TransactionNum")] Manifest manifest)
         {
             if (ModelState.IsValid)
             {
@@ -95,6 +98,7 @@ namespace GroupProject.Controllers
             }
             ViewBag.FlightNum = new SelectList(db.FlightInfoes, "FlightNum", "DepartureAirport", manifest.FlightNum);
             ViewBag.TicketNum = new SelectList(db.PassengerInfoes, "TicketNum", "FirstName", manifest.TicketNum);
+            ViewBag.TransactionNum = new SelectList(db.PaymentInfoes, "TransactionNum", "TransactionNum", manifest.TransactionNum);
             return View(manifest);
         }
 

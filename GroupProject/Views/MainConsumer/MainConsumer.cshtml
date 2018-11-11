@@ -4,7 +4,6 @@
      Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <html>
 <head>
      <meta charset="utf-8" />
@@ -29,7 +28,7 @@
                     <ul class="nav navbar-nav">
                          <li>@Html.ActionLink("About", "About", "Home")</li>
                          <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                         <li>@Html.ActionLink("Check Status", "Check Status", "Home")</li>
+                         <li>@Html.ActionLink("Check Flight Status", "Check Flight Status", "Home")</li>
                          <li>@Html.ActionLink("My Tickets", "My Tickets", "Home")</li>
 
                     </ul>
@@ -40,36 +39,30 @@
 </body>
 </html>
 
-
-
 <h2>Search For a Flight</h2>
 
-<div class="form-group">  <!--need to add number of passengers to this and remove departure time-->
-     <!--Also, put a space between the label words-->
+<div class="form-group">
+     @Html.LabelFor(Model => Model.DepartureDate, htmlAttributes: new {  @class = "control-label col-md-2"})
+     <div class="col-md-10">
+          @Html.DropDownList("DepartureDate", null, htmlAttributes: new {  @class = "form-control"})
+          @Html.ValidationMessageFor(model =>model.DepartureDate, "", new { @class = "text-danger"})
+     </div>
+</div>
+
+<div class="form-group">
      @Html.LabelFor(Model => Model.ArrivalAirport, htmlAttributes: new { @class = "control-label col-md-2" })
      <div class="col-md-10">
           @Html.DropDownList("ArrivalAirport", null, htmlAttributes: new { @class = "form-control" })
           @Html.ValidationMessageFor(model => model.ArrivalAirport, "", new { @class = "text-danger" })
-
      </div>
 </div>
 
 <div class="form-group">
-     @Html.LabelFor(Model => Model.DepartureDate, htmlAttributes: new { @class = "control-label col-md-2" })
+     @Html.LabelFor(Model => Model.FlightCapacity, htmlAttributes: new { @class = "control-label col-md-2" })
      <div class="col-md-10">
-          @Html.DropDownList("DepartureDate", null, htmlAttributes: new { @class = "form-control" })
-          @Html.ValidationMessageFor(model => model.DepartureDate, "", new { @class = "text-danger" })
-
+          @Html.DropDownList("FlightCapacity", null, htmlAttributes: new { @class = "form-control" })
+          @Html.ValidationMessageFor(model => model.FlightCapacity, "", new { @class = "text-danger" })
      </div>
 </div>
 
-<div class="form-group">
-     @Html.LabelFor(Model => Model.DepartureTime, htmlAttributes: new { @class = "control-label col-md-2" })
-     <div class="col-md-10">
-          @Html.DropDownList("DepartureTime", null, htmlAttributes: new { @class = "form-control" })
-          @Html.ValidationMessageFor(model => model.DepartureTime, "", new { @class = "text-danger" })
-
-     </div>
-</div>
-
-<input type="button" value="Search" onclick="location.href='@Url.Action("Create", "FlightInfoes")'" />  <!--Should send to FlightSelectionPage-->
+<input type="button" value="Search" onclick="Location.href='@Url.Action("Create", "FlightInfoes")'" /> <!--Should send to Flight Selection page when complete-->

@@ -12,7 +12,7 @@ namespace GroupProject.Controllers
 {
     public class FlightInfoesController : Controller
     {
-        private Group2DBEntities db = new Group2DBEntities();
+        private GroupProject20181102032945_dbEntities db = new GroupProject20181102032945_dbEntities();
 
         // GET: FlightInfoes
         public ActionResult Index()

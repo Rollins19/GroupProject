@@ -13,10 +13,10 @@ namespace GroupProject.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Group2DBEntities : DbContext
+    public partial class GroupProject20181102032945_dbEntities : DbContext
     {
-        public Group2DBEntities()
-            : base("name=Group2DBEntities")
+        public GroupProject20181102032945_dbEntities()
+            : base("name=GroupProject20181102032945_dbEntities")
         {
         }
     

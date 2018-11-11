@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b9cc3c8f44844f92a059fdff146c3d25" Name="Diagram1">
+        <EntityTypeShape EntityType="GroupProject20181102032945_dbModel.FlightInfo" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GroupProject20181102032945_dbModel.Manifest" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GroupProject20181102032945_dbModel.PassengerInfo" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GroupProject20181102032945_dbModel.PaymentInfo" Width="1.5" PointX="7.375" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="GroupProject20181102032945_dbModel.FK_Manifest_FlightInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="GroupProject20181102032945_dbModel.FK_Manifest_PassengerInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="GroupProject20181102032945_dbModel.FK_Manifest_PaymentInfo" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

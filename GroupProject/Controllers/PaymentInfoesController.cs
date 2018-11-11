@@ -12,13 +12,12 @@ namespace GroupProject.Controllers
 {
     public class PaymentInfoesController : Controller
     {
-        private Group2DBEntities db = new Group2DBEntities();
+        private GroupProject20181102032945_dbEntities db = new GroupProject20181102032945_dbEntities();
 
         // GET: PaymentInfoes
         public ActionResult Index()
         {
-            var paymentInfoes = db.PaymentInfoes.Include(p => p.Manifest);
-            return View(paymentInfoes.ToList());
+            return View(db.PaymentInfoes.ToList());
         }
 
         // GET: PaymentInfoes/Details/5
@@ -39,7 +38,6 @@ namespace GroupProject.Controllers
         // GET: PaymentInfoes/Create
         public ActionResult Create()
         {
-            ViewBag.ManifestID = new SelectList(db.Manifests, "ManifestID", "ManifestID");
             return View();
         }
 
@@ -48,7 +46,7 @@ namespace GroupProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TransactionNum,FirstName,LastName,SecurityCode,ExpirationDate,TotalCostAmount,CardNum,ManifestID")] PaymentInfo paymentInfo)
+        public ActionResult Create([Bind(Include = "TransactionNum,FirstName,LastName,SecurityCode,ExpirationDate,TotalCost,CardNum,ManifestID")] PaymentInfo paymentInfo)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +55,6 @@ namespace GroupProject.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ManifestID = new SelectList(db.Manifests, "ManifestID", "ManifestID", paymentInfo.ManifestID);
             return View(paymentInfo);
         }
 
@@ -73,7 +70,6 @@ namespace GroupProject.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ManifestID = new SelectList(db.Manifests, "ManifestID", "ManifestID", paymentInfo.ManifestID);
             return View(paymentInfo);
         }
 
@@ -82,7 +78,7 @@ namespace GroupProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TransactionNum,FirstName,LastName,SecurityCode,ExpirationDate,TotalCostAmount,CardNum,ManifestID")] PaymentInfo paymentInfo)
+        public ActionResult Edit([Bind(Include = "TransactionNum,FirstName,LastName,SecurityCode,ExpirationDate,TotalCost,CardNum,ManifestID")] PaymentInfo paymentInfo)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +86,6 @@ namespace GroupProject.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ManifestID = new SelectList(db.Manifests, "ManifestID", "ManifestID", paymentInfo.ManifestID);
             return View(paymentInfo);
         }
 

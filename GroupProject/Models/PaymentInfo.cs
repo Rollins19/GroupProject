@@ -11,25 +11,25 @@ namespace GroupProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-
-     public partial class PaymentInfo
-    {
-        public int TransactionNum { get; set; }
-        [Display(Name = "First Name")]
-        public string FirstName { get; set; }
-        [Display(Name = "Last Name")]
-        public string LastName { get; set; }
-        [Display(Name = "Security Code")]
-        public int SecurityCode { get; set; }
-        [Display(Name = "Expiration Date")]
-        public System.DateTime ExpirationDate { get; set; }
-        [Display(Name = "Total Cost Amount")]
-        public decimal TotalCostAmount { get; set; }
-        public int CardNum { get; set; }
-        public int ManifestID { get; set; }
     
-        public virtual Manifest Manifest { get; set; }
+    public partial class PaymentInfo
+    {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PaymentInfo()
+        {
+            this.Manifests = new HashSet<Manifest>();
+        }
+    
+        public int TransactionNum { get; set; }
+        public int FirstName { get; set; }
+        public int LastName { get; set; }
+        public Nullable<int> SecurityCode { get; set; }
+        public Nullable<System.DateTime> ExpirationDate { get; set; }
+        public Nullable<decimal> TotalCost { get; set; }
+        public Nullable<int> CardNum { get; set; }
+        public Nullable<int> ManifestID { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Manifest> Manifests { get; set; }
     }
 }

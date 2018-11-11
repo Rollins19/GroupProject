@@ -12,14 +12,14 @@ namespace GroupProject.Controllers
 {
     public class MainConsumerController : Controller
     {
-          private Group2DBEntities db = new Group2DBEntities();
+          private GroupProject20181102032945_dbEntities db = new GroupProject20181102032945_dbEntities();
         // GET: MainConsumer
         public ActionResult MainConsumer()
         {
                ViewBag.DepartureDate = new SelectList(db.FlightInfoes, "FlightNum", "DepartureDate.date");
                ViewBag.ArrivalAirport = new SelectList(db.FlightInfoes, "FlightNum", "ArrivalAirport");
-               ViewBag.DepartureTime = new SelectList(db.FlightInfoes, "FlightNum", "DepartureTime"); //Need to modify flight capacity to available seat capacity
-               return View();
+               ViewBag.FlightCapacity = new SelectList(db.FlightInfoes, "FlightNum", "FlightCapacity");
+            return View();
         }
     }
 }

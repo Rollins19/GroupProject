@@ -14,19 +14,13 @@ namespace GroupProject.Models
     
     public partial class Manifest
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Manifest()
-        {
-            this.PaymentInfoes = new HashSet<PaymentInfo>();
-        }
-    
         public int ManifestID { get; set; }
         public int TicketNum { get; set; }
         public int FlightNum { get; set; }
+        public int TransactionNum { get; set; }
     
         public virtual FlightInfo FlightInfo { get; set; }
         public virtual PassengerInfo PassengerInfo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PaymentInfo> PaymentInfoes { get; set; }
+        public virtual PaymentInfo PaymentInfo { get; set; }
     }
 }
