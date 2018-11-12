@@ -28,7 +28,7 @@
                     <ul class="nav navbar-nav">
                          <li>@Html.ActionLink("About", "About", "Home")</li>
                          <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                         <li>@Html.ActionLink("Check Flight Status", "Check Flight Status", "Home")</li>
+                         <li>@Html.ActionLink("Check Flight Status", "CheckFlightStatus", "CheckFlightStatus")</li>
                          <li>@Html.ActionLink("My Tickets", "My Tickets", "Home")</li>
 
                     </ul>
@@ -41,28 +41,64 @@
 
 <h2>Search For a Flight</h2>
 
-<div class="form-group">
-     @Html.LabelFor(Model => Model.DepartureDate, htmlAttributes: new {  @class = "control-label col-md-2"})
-     <div class="col-md-10">
-          @Html.DropDownList("DepartureDate", null, htmlAttributes: new {  @class = "form-control"})
-          @Html.ValidationMessageFor(model =>model.DepartureDate, "", new { @class = "text-danger"})
-     </div>
-</div>
 
-<div class="form-group">
-     @Html.LabelFor(Model => Model.ArrivalAirport, htmlAttributes: new { @class = "control-label col-md-2" })
-     <div class="col-md-10">
-          @Html.DropDownList("ArrivalAirport", null, htmlAttributes: new { @class = "form-control" })
+     <div>
+          @Html.LabelFor(Model => Model.DepartureDate, htmlAttributes: new { @class = "control-label col-md-2" })
+
+          @if (ViewBag.DepartureDateList != null)
+          {
+               @Html.DropDownListFor(m => m.FlightNum, ViewBag.DepartureDateList as SelectList, "--Select Departure Date--", new { @class = "form-control" })
+               @Html.ValidationMessageFor(model => model.DepartureDate, "", new { @class = "text-danger" })
+
+          }
+          @Html.LabelFor(Model => Model.ArrivalAirport, htmlAttributes: new { @class = "control-label col-md-2" })
+          @Html.DropDownListFor(m => m.FlightNum, ViewBag.ArrivalAirportList as SelectList, "--Select Arrival Airport--", new { @class = "form-control" })
           @Html.ValidationMessageFor(model => model.ArrivalAirport, "", new { @class = "text-danger" })
+          @Html.LabelFor(Model => Model.FlightCapacity, htmlAttributes: new { @class = "control-label col-md-2" })
+          @Html.DropDownListFor(m => m.FlightNum, ViewBag.FlightCapacityList as SelectList, "--Select Number of Passengers--", new { @class = "form-control"})<!--I prefer the other one at the bottom-->
+          <input type="button" value="Search" onclick="location.href='@Url.Action("Create", "FlightInfoes")'" /> <!--Should send to Flight Selection page when complete-->
      </div>
-</div>
 
-<div class="form-group">
-     @Html.LabelFor(Model => Model.FlightCapacity, htmlAttributes: new { @class = "control-label col-md-2" })
-     <div class="col-md-10">
-          @Html.DropDownList("FlightCapacity", null, htmlAttributes: new { @class = "form-control" })
-          @Html.ValidationMessageFor(model => model.FlightCapacity, "", new { @class = "text-danger" })
+<!--
+     
+<script>
+     $(document).ready(function () {
+          $("#FlightNum").change(function () {
+               $.get("/MainConsumerController/GetFlightInfoList", { FlightNum: $("#FlightNum").val() }, function (data) {
+                    // $("#FlightNum").empty();
+                    $.each(data, function (index, row) {
+                         $("#FlightNum").append("<option value = '" + row.FlightNum + "'>" + row.ArrivalAirport + "</option>")
+                    })
+               })
+          })
+     })
+
+</script>
+
+
+     <div class="form-group">
+          @Html.LabelFor(Model => Model.DepartureDate, htmlAttributes: new { @class = "control-label col-md-2" })
+          <div class="col-md-10">
+               @Html.DropDownList("DepartureDate", null, htmlAttributes: new { @class = "form-control" })
+               @Html.ValidationMessageFor(model => model.DepartureDate, "", new { @class = "text-danger" })
+          </div>
      </div>
-</div>
 
-<input type="button" value="Search" onclick="Location.href='@Url.Action("Create", "FlightInfoes")'" /> <!--Should send to Flight Selection page when complete-->
+    <div class="form-group">
+          @Html.LabelFor(Model => Model.ArrivalAirport, htmlAttributes: new { @class = "control-label col-md-2" })
+          <div class="col-md-10">
+               @Html.DropDownList("ArrivalAirport", null, htmlAttributes: new { @class = "form-control" })
+               @Html.ValidationMessageFor(model => model.ArrivalAirport, "", new { @class = "text-danger" })
+          </div>
+     </div>
+
+     <div class="form-group">
+          @Html.LabelFor(Model => Model.FlightCapacity, htmlAttributes: new { @class = "control-label col-md-2" })
+          <div class="col-md-10">
+
+               @Html.DropDownListFor(m => m.FlightCapacity, Enumerable.Range(1, 30).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }))
+               @Html.ValidationMessageFor(model => model.FlightCapacity, "", new { @class = "text-danger" })
+          </div>
+     </div>
+
+       -->

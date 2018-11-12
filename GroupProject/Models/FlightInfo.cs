@@ -30,6 +30,8 @@ namespace GroupProject.Models
         public System.TimeSpan DepartureTime { get; set; }
         [Display(Name= "Arrival Time")]
         public System.TimeSpan ArrivalTime { get; set; }
+       // [DataType(DataType.Date)] put a calender selector in the ddl
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name="Departure Date")]
         public System.DateTime DepartureDate { get; set; }
         [Display(Name="Flight Capacity")]
