@@ -5,27 +5,3 @@
 }
 
 <h2>Hello From the Check Flight Status</h2>
-
-<div>
-     
-     @foreach (var item in ViewBag.FlightCapacityList)
-     {
-          <dl class="dl-horizontal">
-               <dt>
-                    @Html.DisplayNameFor(model => model.FlightNum)
-               </dt>
-
-               <dd>
-                    @Html.DisplayFor(model => model.FlightNum)
-               </dd>
-
-               <dt>
-                    @Html.DisplayNameFor(model => model.FlightStatus)
-               </dt>
-
-               <dd>
-                    @Html.DisplayFor(model => model.FlightStatus)
-               </dd>
-          </dl>
-     }
-</div>
