@@ -21,13 +21,12 @@ namespace GroupProject.Models
         }
     
         public int TransactionNum { get; set; }
-        public int FirstName { get; set; }
-        public int LastName { get; set; }
-        public Nullable<int> SecurityCode { get; set; }
-        public Nullable<System.DateTime> ExpirationDate { get; set; }
-        public Nullable<decimal> TotalCost { get; set; }
-        public Nullable<int> CardNum { get; set; }
-        public Nullable<int> ManifestID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int SecurityCode { get; set; }
+        public System.DateTime ExpirationDate { get; set; }
+        public decimal TotalCost { get; set; }
+        public int CardNum { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Manifest> Manifests { get; set; }
