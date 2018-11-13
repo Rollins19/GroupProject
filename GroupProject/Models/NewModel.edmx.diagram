@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="GroupProject20181102032945_dbModel.PassengerInfo" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="GroupProject20181102032945_dbModel.FK_Manifest_FlightInfo" ManuallyRouted="false" />
         <AssociationConnector Association="GroupProject20181102032945_dbModel.FK_Manifest_PassengerInfo" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="GroupProject20181102032945_dbModel.PaymentInfo" Width="1.5" PointX="3.375" PointY="5" />
+        <EntityTypeShape EntityType="GroupProject20181102032945_dbModel.PaymentInfo" Width="1.5" PointX="3.5" PointY="4.375" />
         <AssociationConnector Association="GroupProject20181102032945_dbModel.FK_Manifest_Payinfo1" />
       </Diagram>
     </edmx:Diagrams>
