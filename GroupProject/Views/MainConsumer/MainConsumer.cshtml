@@ -1,66 +1,66 @@
 ﻿@model GroupProject.Models.FlightInfo
 @{
-     ViewBag.Title = "MainConsumer";
-     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "MainConsumer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <html>
 <head>
-     <meta charset="utf-8" />
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>@ViewBag.Title - My ASP.NET Application</title>
-     @Styles.Render("~/Content/css")
-     @Scripts.Render("~/bundles/modernizr")
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-     <div class="navbar navbar-inverse navbar-fixed-top">
-          <div class="container">
-               <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                         <span class="icon-bar"></span>
-                         <span class="icon-bar"></span>
-                         <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Welcome to Breezy Airlines", "MainConsumer", "MainConsumer", new { area = "" }, new { @class = "navbar-brand" })
-               </div>
-               <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                         <li>@Html.ActionLink("About", "About", "Home")</li>
-                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                         <li>@Html.ActionLink("Check Flight Status", "CheckFlightStatus", "CheckFlightStatus")</li>
-                         <li>@Html.ActionLink("My Tickets", "My Tickets", "Home")</li>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Welcome to Breezy Airlines", "MainConsumer", "MainConsumer", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Check Flight Status", "CheckFlightStatus", "CheckFlightStatus")</li>
+                    <li>@Html.ActionLink("My Tickets", "My Tickets", "Home")</li>
 
-                    </ul>
-                    @Html.Partial("_LoginPartial")     <!--Login and Register buttons-->
-               </div>
-          </div>
-     </div>
+                </ul>
+                @Html.Partial("_LoginPartial")     <!--Login and Register buttons-->
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 
 <h2>Search For a Flight</h2>
 
 
-     <div>
-          @Html.LabelFor(Model => Model.DepartureDate, htmlAttributes: new { @class = "control-label col-md-2" })
+<div>
+    @Html.LabelFor(Model => Model.DepartureDate, htmlAttributes: new { @class = "control-label col-md-2" })
 
-          @if (ViewBag.DepartureDateList != null)
-          {
-               @Html.DropDownListFor(m => m.FlightNum, ViewBag.DepartureDateList as SelectList, "--Select Departure Date--", new { @class = "form-control" })
-               @Html.ValidationMessageFor(model => model.DepartureDate, "", new { @class = "text-danger" })
+    @if (ViewBag.DepartureDateList != null)
+    {
+        @Html.DropDownListFor(m => m.FlightNum, ViewBag.DepartureDateList as SelectList, "--Select Departure Date--", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.DepartureDate, "", new { @class = "text-danger" })
 
-          }
-          @Html.LabelFor(Model => Model.ArrivalAirport, htmlAttributes: new { @class = "control-label col-md-2" })
-          @Html.DropDownListFor(m => m.FlightNum, ViewBag.ArrivalAirportList as SelectList, "--Select Arrival Airport--", new { @class = "form-control" })
-          @Html.ValidationMessageFor(model => model.ArrivalAirport, "", new { @class = "text-danger" })
-          @Html.LabelFor(Model => Model.FlightCapacity, htmlAttributes: new { @class = "control-label col-md-2" })
-          @Html.DropDownListFor(m => m.FlightNum, ViewBag.FlightCapacityList as SelectList, "--Select Number of Passengers--", new { @class = "form-control"})<!--I prefer the other one at the bottom-->
-          <input type="button" value="Search" onclick="location.href='@Url.Action("Create", "FlightInfoes")'" /> <!--Should send to Flight Selection page when complete-->
-     </div>
+    }
+    @Html.LabelFor(Model => Model.ArrivalAirport, htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.DropDownListFor(m => m.FlightNum, ViewBag.ArrivalAirportList as SelectList, "--Select Arrival Airport--", new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ArrivalAirport, "", new { @class = "text-danger" })
+    @Html.LabelFor(Model => Model.FlightCapacity, htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.DropDownListFor(m => m.FlightNum, ViewBag.FlightCapacityList as SelectList, "--Select Number of Passengers--", new { @class = "form-control" })<!--I prefer the other one at the bottom-->
+    <input type="button" value="Search" onclick="location.href='@Url.Action("Create", "FlightInfoes")'" /> <!--Should send to Flight Selection page when complete-->
+</div>
 
 <!--
-     
+
 <script>
      $(document).ready(function () {
           $("#FlightNum").change(function () {

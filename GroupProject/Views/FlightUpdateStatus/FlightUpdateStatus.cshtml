@@ -1,0 +1,71 @@
+﻿@model IEnumerable<GroupProject.Models.FlightInfo>
+@{
+    ViewBag.Title = "FlightUpdateStatus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Update Flight Status</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureAirport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalAirport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightCapacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SingleTicketPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightStatus)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureAirport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArrivalAirport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArrivalTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightCapacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SingleTicketPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightStatus)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.FlightNum })
+            </td>
+        </tr>
+    }
+</table>
