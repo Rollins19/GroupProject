@@ -13,13 +13,10 @@ namespace GroupProject.Controllers
           // GET: CheckFlightStatus
           public ActionResult CheckFlightStatus()
           {
-              return View();
+   
+              return View(db.FlightInfoes.ToList());
           }
 
-          public List<FlightInfo> GetFlightInfoList()
-          {
-               List<FlightInfo> flightInfoes = db.FlightInfoes.ToList();
-               return flightInfoes;
-          }
+         
     }
 }
