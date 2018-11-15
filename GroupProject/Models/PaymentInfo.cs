@@ -14,12 +14,6 @@ namespace GroupProject.Models
     
     public partial class PaymentInfo
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PaymentInfo()
-        {
-            this.Manifests = new HashSet<Manifest>();
-        }
-    
         public int TransactionNum { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -27,8 +21,5 @@ namespace GroupProject.Models
         public System.DateTime ExpirationDate { get; set; }
         public decimal TotalCost { get; set; }
         public int CardNum { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Manifest> Manifests { get; set; }
     }
 }

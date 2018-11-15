@@ -12,12 +12,12 @@ namespace GroupProject.Controllers
 {
     public class ManifestsController : Controller
     {
-        private GroupProject20181102032945_dbEntities db = new GroupProject20181102032945_dbEntities();
+        private GroupProject20181102032945_dbEntities1 db = new GroupProject20181102032945_dbEntities1();
 
         // GET: Manifests
         public ActionResult Index()
         {
-            var manifests = db.Manifests.Include(m => m.FlightInfo).Include(m => m.PassengerInfo).Include(m => m.PaymentInfo);
+            var manifests = db.Manifests.Include(m => m.FlightInfo).Include(m => m.PassengerInfo);
             return View(manifests.ToList());
         }
 
@@ -40,8 +40,7 @@ namespace GroupProject.Controllers
         public ActionResult Create()
         {
             ViewBag.FlightNum = new SelectList(db.FlightInfoes, "FlightNum", "DepartureAirport");
-            ViewBag.TicketNum = new SelectList(db.PassengerInfoes, "TicketNum", "FirstName");
-            ViewBag.TransactionNum = new SelectList(db.PaymentInfoes, "TransactionNum", "TransactionNum");
+            ViewBag.PassengerID = new SelectList(db.PassengerInfoes, "PassengerID", "FirstName");
             return View();
         }
 
@@ -50,7 +49,7 @@ namespace GroupProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ManifestID,TicketNum,FlightNum,TransactionNum")] Manifest manifest)
+        public ActionResult Create([Bind(Include = "ManifestID,PassengerID,FlightNum,TicketNum,SeatNum")] Manifest manifest)
         {
             if (ModelState.IsValid)
             {
@@ -60,8 +59,7 @@ namespace GroupProject.Controllers
             }
 
             ViewBag.FlightNum = new SelectList(db.FlightInfoes, "FlightNum", "DepartureAirport", manifest.FlightNum);
-            ViewBag.TicketNum = new SelectList(db.PassengerInfoes, "TicketNum", "FirstName", manifest.TicketNum);
-            ViewBag.TransactionNum = new SelectList(db.PaymentInfoes, "TransactionNum", "TransactionNum", manifest.TransactionNum);
+            ViewBag.PassengerID = new SelectList(db.PassengerInfoes, "PassengerID", "FirstName", manifest.PassengerID);
             return View(manifest);
         }
 
@@ -78,8 +76,7 @@ namespace GroupProject.Controllers
                 return HttpNotFound();
             }
             ViewBag.FlightNum = new SelectList(db.FlightInfoes, "FlightNum", "DepartureAirport", manifest.FlightNum);
-            ViewBag.TicketNum = new SelectList(db.PassengerInfoes, "TicketNum", "FirstName", manifest.TicketNum);
-            ViewBag.TransactionNum = new SelectList(db.PaymentInfoes, "TransactionNum", "TransactionNum", manifest.TransactionNum);
+            ViewBag.PassengerID = new SelectList(db.PassengerInfoes, "PassengerID", "FirstName", manifest.PassengerID);
             return View(manifest);
         }
 
@@ -88,7 +85,7 @@ namespace GroupProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ManifestID,TicketNum,FlightNum,TransactionNum")] Manifest manifest)
+        public ActionResult Edit([Bind(Include = "ManifestID,PassengerID,FlightNum,TicketNum,SeatNum")] Manifest manifest)
         {
             if (ModelState.IsValid)
             {
@@ -97,8 +94,7 @@ namespace GroupProject.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.FlightNum = new SelectList(db.FlightInfoes, "FlightNum", "DepartureAirport", manifest.FlightNum);
-            ViewBag.TicketNum = new SelectList(db.PassengerInfoes, "TicketNum", "FirstName", manifest.TicketNum);
-            ViewBag.TransactionNum = new SelectList(db.PaymentInfoes, "TransactionNum", "TransactionNum", manifest.TransactionNum);
+            ViewBag.PassengerID = new SelectList(db.PassengerInfoes, "PassengerID", "FirstName", manifest.PassengerID);
             return View(manifest);
         }
 

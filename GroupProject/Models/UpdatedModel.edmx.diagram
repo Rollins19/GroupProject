@@ -4,14 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b9cc3c8f44844f92a059fdff146c3d25" Name="Diagram1">
+      <Diagram DiagramId="4193a43570754980a156f0afc14bfe74" Name="Diagram1">
         <EntityTypeShape EntityType="GroupProject20181102032945_dbModel.FlightInfo" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="GroupProject20181102032945_dbModel.Manifest" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="GroupProject20181102032945_dbModel.PassengerInfo" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GroupProject20181102032945_dbModel.PassengerInfo" Width="1.5" PointX="4.875" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GroupProject20181102032945_dbModel.PaymentInfo" Width="1.5" PointX="7.125" PointY="1.375" IsExpanded="true" />
         <AssociationConnector Association="GroupProject20181102032945_dbModel.FK_Manifest_FlightInfo" ManuallyRouted="false" />
         <AssociationConnector Association="GroupProject20181102032945_dbModel.FK_Manifest_PassengerInfo" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="GroupProject20181102032945_dbModel.PaymentInfo" Width="1.5" PointX="3.5" PointY="4.375" />
-        <AssociationConnector Association="GroupProject20181102032945_dbModel.FK_Manifest_Payinfo1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

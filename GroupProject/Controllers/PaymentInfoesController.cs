@@ -12,7 +12,7 @@ namespace GroupProject.Controllers
 {
     public class PaymentInfoesController : Controller
     {
-        private GroupProject20181102032945_dbEntities db = new GroupProject20181102032945_dbEntities();
+        private GroupProject20181102032945_dbEntities1 db = new GroupProject20181102032945_dbEntities1();
 
         // GET: PaymentInfoes
         public ActionResult Index()
@@ -46,7 +46,7 @@ namespace GroupProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TransactionNum,FirstName,LastName,SecurityCode,ExpirationDate,TotalCost,CardNum,ManifestID")] PaymentInfo paymentInfo)
+        public ActionResult Create([Bind(Include = "TransactionNum,FirstName,LastName,SecurityCode,ExpirationDate,TotalCost,CardNum")] PaymentInfo paymentInfo)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace GroupProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TransactionNum,FirstName,LastName,SecurityCode,ExpirationDate,TotalCost,CardNum,ManifestID")] PaymentInfo paymentInfo)
+        public ActionResult Edit([Bind(Include = "TransactionNum,FirstName,LastName,SecurityCode,ExpirationDate,TotalCost,CardNum")] PaymentInfo paymentInfo)
         {
             if (ModelState.IsValid)
             {

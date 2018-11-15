@@ -21,17 +21,6 @@
         <th>
             @Html.DisplayNameFor(model => model.DOB)
         </th>
-        <!--
-    <th>
-        @Html.DisplayNameFor(model => model.SeatNum)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.NumOfTickets)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.ManifestID)
-    </th>
-        -->
         <th></th>
     </tr>
 
@@ -46,21 +35,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.DOB)
         </td>
-        <!--
-    <td>
-        @Html.DisplayFor(modelItem => item.SeatNum)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.NumOfTickets)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ManifestID)
-    </td>
-        -->
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.TicketNum }) |
-            @Html.ActionLink("Details", "Details", new { id = item.TicketNum }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.TicketNum })
+            @Html.ActionLink("Edit", "Edit", new { id=item.PassengerID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PassengerID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PassengerID })
         </td>
     </tr>
 }

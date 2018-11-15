@@ -12,7 +12,7 @@ namespace GroupProject.Controllers
 {
     public class MainConsumerController : Controller
     {
-          private GroupProject20181102032945_dbEntities db = new GroupProject20181102032945_dbEntities();
+          private GroupProject20181102032945_dbEntities1 db = new GroupProject20181102032945_dbEntities1();
 
          // public string ArrivalAirport { get; private set; }
 
@@ -32,7 +32,7 @@ namespace GroupProject.Controllers
 
         public List<FlightInfo> GetFlightInfoList()
         {
-             GroupProject20181102032945_dbEntities db = new GroupProject20181102032945_dbEntities();
+             GroupProject20181102032945_dbEntities1 db = new GroupProject20181102032945_dbEntities1();
              List<FlightInfo> flightInfoes = db.FlightInfoes.ToList();
              return flightInfoes;
         }

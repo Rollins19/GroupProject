@@ -15,12 +15,12 @@ namespace GroupProject.Models
     public partial class Manifest
     {
         public int ManifestID { get; set; }
-        public int TicketNum { get; set; }
+        public int PassengerID { get; set; }
         public int FlightNum { get; set; }
-        public int TransactionNum { get; set; }
+        public int TicketNum { get; set; }
+        public string SeatNum { get; set; }
     
         public virtual FlightInfo FlightInfo { get; set; }
         public virtual PassengerInfo PassengerInfo { get; set; }
-        public virtual PaymentInfo PaymentInfo { get; set; }
     }
 }

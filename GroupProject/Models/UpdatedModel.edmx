@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="GroupProject20181102032945_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="GroupProject20181102032945_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="FlightInfo">
           <Key>
             <PropertyRef Name="FlightNum" />
@@ -24,21 +24,19 @@
             <PropertyRef Name="ManifestID" />
           </Key>
           <Property Name="ManifestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TicketNum" Type="int" Nullable="false" />
+          <Property Name="PassengerID" Type="int" Nullable="false" />
           <Property Name="FlightNum" Type="int" Nullable="false" />
-          <Property Name="TransactionNum" Type="int" Nullable="false" />
+          <Property Name="TicketNum" Type="int" Nullable="false" />
+          <Property Name="SeatNum" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="PassengerInfo">
           <Key>
-            <PropertyRef Name="TicketNum" />
+            <PropertyRef Name="PassengerID" />
           </Key>
-          <Property Name="TicketNum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PassengerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="DOB" Type="date" Nullable="false" />
-          <Property Name="SeatNum" Type="int" Nullable="false" />
-          <Property Name="NumOfTickets" Type="int" Nullable="false" />
-          <Property Name="ManifestID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="PaymentInfo">
           <Key>
@@ -69,22 +67,10 @@
           <End Role="Manifest" Type="Self.Manifest" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PassengerInfo">
-              <PropertyRef Name="TicketNum" />
+              <PropertyRef Name="PassengerID" />
             </Principal>
             <Dependent Role="Manifest">
-              <PropertyRef Name="TicketNum" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Manifest_Payinfo">
-          <End Role="PaymentInfo" Type="Self.PaymentInfo" Multiplicity="1" />
-          <End Role="Manifest" Type="Self.Manifest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentInfo">
-              <PropertyRef Name="TransactionNum" />
-            </Principal>
-            <Dependent Role="Manifest">
-              <PropertyRef Name="TransactionNum" />
+              <PropertyRef Name="PassengerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -101,12 +87,9 @@
             <End Role="PassengerInfo" EntitySet="PassengerInfo" />
             <End Role="Manifest" EntitySet="Manifest" />
           </AssociationSet>
-          <AssociationSet Name="FK_Manifest_Payinfo" Association="Self.FK_Manifest_Payinfo">
-            <End Role="PaymentInfo" EntitySet="PaymentInfo" />
-            <End Role="Manifest" EntitySet="Manifest" />
-          </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="GroupProject20181102032945_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -130,25 +113,34 @@
             <PropertyRef Name="ManifestID" />
           </Key>
           <Property Name="ManifestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TicketNum" Type="Int32" Nullable="false" />
+          <Property Name="PassengerID" Type="Int32" Nullable="false" />
           <Property Name="FlightNum" Type="Int32" Nullable="false" />
-          <Property Name="TransactionNum" Type="Int32" Nullable="false" />
+          <Property Name="TicketNum" Type="Int32" Nullable="false" />
+          <Property Name="SeatNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="FlightInfo" Relationship="Self.FK_Manifest_FlightInfo" FromRole="Manifest" ToRole="FlightInfo" />
           <NavigationProperty Name="PassengerInfo" Relationship="Self.FK_Manifest_PassengerInfo" FromRole="Manifest" ToRole="PassengerInfo" />
-          <NavigationProperty Name="PaymentInfo" Relationship="GroupProject20181102032945_dbModel.FK_Manifest_Payinfo1" FromRole="Manifest" ToRole="PaymentInfo" />
         </EntityType>
         <EntityType Name="PassengerInfo">
           <Key>
-            <PropertyRef Name="TicketNum" />
+            <PropertyRef Name="PassengerID" />
           </Key>
-          <Property Name="TicketNum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PassengerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="SeatNum" Type="Int32" Nullable="false" />
-          <Property Name="NumOfTickets" Type="Int32" Nullable="false" />
-          <Property Name="ManifestID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Manifests" Relationship="Self.FK_Manifest_PassengerInfo" FromRole="PassengerInfo" ToRole="Manifest" />
+        </EntityType>
+        <EntityType Name="PaymentInfo">
+          <Key>
+            <PropertyRef Name="TransactionNum" />
+          </Key>
+          <Property Name="TransactionNum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SecurityCode" Type="Int32" Nullable="false" />
+          <Property Name="ExpirationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TotalCost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="CardNum" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK_Manifest_FlightInfo">
           <End Role="FlightInfo" Type="Self.FlightInfo" Multiplicity="1" />
@@ -167,17 +159,18 @@
           <End Role="Manifest" Type="Self.Manifest" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PassengerInfo">
-              <PropertyRef Name="TicketNum" />
+              <PropertyRef Name="PassengerID" />
             </Principal>
             <Dependent Role="Manifest">
-              <PropertyRef Name="TicketNum" />
+              <PropertyRef Name="PassengerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="GroupProject20181102032945_dbEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="GroupProject20181102032945_dbEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="FlightInfoes" EntityType="Self.FlightInfo" />
           <EntitySet Name="Manifests" EntityType="Self.Manifest" />
           <EntitySet Name="PassengerInfoes" EntityType="Self.PassengerInfo" />
+          <EntitySet Name="PaymentInfoes" EntityType="Self.PaymentInfo" />
           <AssociationSet Name="FK_Manifest_FlightInfo" Association="Self.FK_Manifest_FlightInfo">
             <End Role="FlightInfo" EntitySet="FlightInfoes" />
             <End Role="Manifest" EntitySet="Manifests" />
@@ -186,43 +179,13 @@
             <End Role="PassengerInfo" EntitySet="PassengerInfoes" />
             <End Role="Manifest" EntitySet="Manifests" />
           </AssociationSet>
-          <EntitySet Name="PaymentInfoes" EntityType="GroupProject20181102032945_dbModel.PaymentInfo" />
-          <AssociationSet Name="FK_Manifest_Payinfo1" Association="GroupProject20181102032945_dbModel.FK_Manifest_Payinfo1">
-            <End Role="PaymentInfo" EntitySet="PaymentInfoes" />
-            <End Role="Manifest" EntitySet="Manifests" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="PaymentInfo">
-          <Key>
-            <PropertyRef Name="TransactionNum" />
-          </Key>
-          <Property Name="TransactionNum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="SecurityCode" Type="Int32" Nullable="false" />
-          <Property Name="ExpirationDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="TotalCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-          <Property Name="CardNum" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Manifests" Relationship="GroupProject20181102032945_dbModel.FK_Manifest_Payinfo1" FromRole="PaymentInfo" ToRole="Manifest" />
-        </EntityType>
-        <Association Name="FK_Manifest_Payinfo1">
-          <End Type="GroupProject20181102032945_dbModel.PaymentInfo" Role="PaymentInfo" Multiplicity="1" />
-          <End Type="GroupProject20181102032945_dbModel.Manifest" Role="Manifest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentInfo">
-              <PropertyRef Name="TransactionNum" />
-            </Principal>
-            <Dependent Role="Manifest">
-              <PropertyRef Name="TransactionNum" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="GroupProject20181102032945_dbModelStoreContainer" CdmEntityContainer="GroupProject20181102032945_dbEntities">
+        <EntityContainerMapping StorageEntityContainer="GroupProject20181102032945_dbModelStoreContainer" CdmEntityContainer="GroupProject20181102032945_dbEntities1">
           <EntitySetMapping Name="FlightInfoes">
             <EntityTypeMapping TypeName="GroupProject20181102032945_dbModel.FlightInfo">
               <MappingFragment StoreEntitySet="FlightInfo">
@@ -242,35 +205,33 @@
             <EntityTypeMapping TypeName="GroupProject20181102032945_dbModel.Manifest">
               <MappingFragment StoreEntitySet="Manifest">
                 <ScalarProperty Name="ManifestID" ColumnName="ManifestID" />
-                <ScalarProperty Name="TicketNum" ColumnName="TicketNum" />
+                <ScalarProperty Name="PassengerID" ColumnName="PassengerID" />
                 <ScalarProperty Name="FlightNum" ColumnName="FlightNum" />
-                <ScalarProperty Name="TransactionNum" ColumnName="TransactionNum" />
+                <ScalarProperty Name="TicketNum" ColumnName="TicketNum" />
+                <ScalarProperty Name="SeatNum" ColumnName="SeatNum" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PassengerInfoes">
             <EntityTypeMapping TypeName="GroupProject20181102032945_dbModel.PassengerInfo">
               <MappingFragment StoreEntitySet="PassengerInfo">
-                <ScalarProperty Name="TicketNum" ColumnName="TicketNum" />
+                <ScalarProperty Name="PassengerID" ColumnName="PassengerID" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
-                <ScalarProperty Name="SeatNum" ColumnName="SeatNum" />
-                <ScalarProperty Name="NumOfTickets" ColumnName="NumOfTickets" />
-                <ScalarProperty Name="ManifestID" ColumnName="ManifestID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PaymentInfoes">
             <EntityTypeMapping TypeName="GroupProject20181102032945_dbModel.PaymentInfo">
               <MappingFragment StoreEntitySet="PaymentInfo">
-                <ScalarProperty Name="CardNum" ColumnName="CardNum" />
-                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
-                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
-                <ScalarProperty Name="SecurityCode" ColumnName="SecurityCode" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="TransactionNum" ColumnName="TransactionNum" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="SecurityCode" ColumnName="SecurityCode" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+                <ScalarProperty Name="CardNum" ColumnName="CardNum" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

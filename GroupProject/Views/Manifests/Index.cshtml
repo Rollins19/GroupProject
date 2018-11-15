@@ -13,13 +13,16 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.TicketNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeatNum)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.FlightInfo.DepartureAirport)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PassengerInfo.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PaymentInfo.TransactionNum)
         </th>
         <th></th>
     </tr>
@@ -27,13 +30,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.TicketNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SeatNum)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.FlightInfo.DepartureAirport)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PassengerInfo.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PaymentInfo.TransactionNum)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ManifestID }) |

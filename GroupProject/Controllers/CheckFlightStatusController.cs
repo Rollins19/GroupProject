@@ -9,7 +9,7 @@ namespace GroupProject.Controllers
 {
     public class CheckFlightStatusController : Controller
     {
-          GroupProject20181102032945_dbEntities db = new GroupProject20181102032945_dbEntities();
+          GroupProject20181102032945_dbEntities1 db = new GroupProject20181102032945_dbEntities1();
           // GET: CheckFlightStatus
           public ActionResult CheckFlightStatus()
           {

@@ -12,7 +12,7 @@ namespace GroupProject.Controllers
 {
     public class PassengerInfoesController : Controller
     {
-        private GroupProject20181102032945_dbEntities db = new GroupProject20181102032945_dbEntities();
+        private GroupProject20181102032945_dbEntities1 db = new GroupProject20181102032945_dbEntities1();
 
         // GET: PassengerInfoes
         public ActionResult Index()
@@ -46,7 +46,7 @@ namespace GroupProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TicketNum,FirstName,LastName,DOB,SeatNum,NumOfTickets,ManifestID")] PassengerInfo passengerInfo)
+        public ActionResult Create([Bind(Include = "PassengerID,FirstName,LastName,DOB")] PassengerInfo passengerInfo)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace GroupProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TicketNum,FirstName,LastName,DOB,SeatNum,NumOfTickets,ManifestID")] PassengerInfo passengerInfo)
+        public ActionResult Edit([Bind(Include = "PassengerID,FirstName,LastName,DOB")] PassengerInfo passengerInfo)
         {
             if (ModelState.IsValid)
             {

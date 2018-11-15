@@ -214,33 +214,33 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FlightInfo.cs">
-      <DependentUpon>NewModel.tt</DependentUpon>
+      <DependentUpon>UpdatedModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Manifest.cs">
-      <DependentUpon>NewModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NewModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NewModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NewModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NewModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NewModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NewModel.edmx</DependentUpon>
+      <DependentUpon>UpdatedModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PassengerInfo.cs">
-      <DependentUpon>NewModel.tt</DependentUpon>
+      <DependentUpon>UpdatedModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PaymentInfo.cs">
-      <DependentUpon>NewModel.tt</DependentUpon>
+      <DependentUpon>UpdatedModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UpdatedModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UpdatedModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UpdatedModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UpdatedModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UpdatedModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UpdatedModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -254,27 +254,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\NewModel.Context.tt">
+    <Content Include="Models\UpdatedModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NewModel.edmx</DependentUpon>
-      <LastGenOutput>NewModel.Context.cs</LastGenOutput>
+      <DependentUpon>UpdatedModel.edmx</DependentUpon>
+      <LastGenOutput>UpdatedModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\NewModel.tt">
+    <Content Include="Models\UpdatedModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NewModel.edmx</DependentUpon>
-      <LastGenOutput>NewModel.cs</LastGenOutput>
+      <DependentUpon>UpdatedModel.edmx</DependentUpon>
+      <LastGenOutput>UpdatedModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\NewModel.edmx">
+    <EntityDeploy Include="Models\UpdatedModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>NewModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>UpdatedModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\NewModel.edmx.diagram">
-      <DependentUpon>NewModel.edmx</DependentUpon>
+    <Content Include="Models\UpdatedModel.edmx.diagram">
+      <DependentUpon>UpdatedModel.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\GroupProject20181102032945 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -329,6 +329,19 @@
     <Content Include="Views\FlightInfoes\Details.cshtml" />
     <Content Include="Views\FlightInfoes\Edit.cshtml" />
     <Content Include="Views\FlightInfoes\Index.cshtml" />
+    <Content Include="Views\MainConsumer\MainConsumer.cshtml" />
+    <Content Include="Views\CheckFlightStatus\CheckFlightStatus.cshtml" />
+    <Content Include="Views\FlightUpdateStatus\FlightUpdateStatus.cshtml" />
+    <Content Include="Views\FlightUpdateStatus\Edit.cshtml" />
+    <Content Include="Views\MyTickets\MyTickets.cshtml" />
+    <Content Include="Views\MyTickets\CancelFLight.cshtml" />
+    <Content Include="Views\PrintTickets\PrintTickets.cshtml" />
+    <Content Include="Views\CancelFlight\CancelFlight.cshtml" />
+    <Content Include="Views\Manifests\Create.cshtml" />
+    <Content Include="Views\Manifests\Delete.cshtml" />
+    <Content Include="Views\Manifests\Details.cshtml" />
+    <Content Include="Views\Manifests\Edit.cshtml" />
+    <Content Include="Views\Manifests\Index.cshtml" />
     <Content Include="Views\PassengerInfoes\Create.cshtml" />
     <Content Include="Views\PassengerInfoes\Delete.cshtml" />
     <Content Include="Views\PassengerInfoes\Details.cshtml" />
@@ -339,19 +352,6 @@
     <Content Include="Views\PaymentInfoes\Details.cshtml" />
     <Content Include="Views\PaymentInfoes\Edit.cshtml" />
     <Content Include="Views\PaymentInfoes\Index.cshtml" />
-    <Content Include="Views\Manifests\Create.cshtml" />
-    <Content Include="Views\Manifests\Delete.cshtml" />
-    <Content Include="Views\Manifests\Details.cshtml" />
-    <Content Include="Views\Manifests\Edit.cshtml" />
-    <Content Include="Views\Manifests\Index.cshtml" />
-    <Content Include="Views\MainConsumer\MainConsumer.cshtml" />
-    <Content Include="Views\CheckFlightStatus\CheckFlightStatus.cshtml" />
-    <Content Include="Views\FlightUpdateStatus\FlightUpdateStatus.cshtml" />
-    <Content Include="Views\FlightUpdateStatus\Edit.cshtml" />
-    <Content Include="Views\MyTickets\MyTickets.cshtml" />
-    <Content Include="Views\MyTickets\CancelFLight.cshtml" />
-    <Content Include="Views\PrintTickets\PrintTickets.cshtml" />
-    <Content Include="Views\CancelFlight\CancelFlight.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
