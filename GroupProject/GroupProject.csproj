@@ -199,6 +199,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckFlightStatusController.cs" />
     <Compile Include="Controllers\FlightInfoesController.cs" />
+    <Compile Include="Controllers\FlightSelectionController.cs" />
     <Compile Include="Controllers\FlightUpdateStatusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MainConsumerController.cs" />
@@ -343,6 +344,7 @@
     <Content Include="Views\CheckFlightStatus\CheckFlightStatus.cshtml" />
     <Content Include="Views\FlightUpdateStatus\FlightUpdateStatus.cshtml" />
     <Content Include="Views\FlightUpdateStatus\Edit.cshtml" />
+    <Content Include="Views\FlightSelection\FlightSelection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
