@@ -39,8 +39,8 @@ namespace GroupProject.Controllers
         // GET: Manifests/Create
         public ActionResult Create()
         {
-            ViewBag.FlightNum = new SelectList(db.FlightInfoes, "FlightNum", "DepartureAirport");
-            ViewBag.PassengerID = new SelectList(db.PassengerInfoes, "PassengerID", "FirstName");
+            ViewBag.FlightNum = new SelectList(db.FlightInfoes, "FlightNum", "FlightNum");
+            ViewBag.PassengerID = new SelectList(db.PassengerInfoes, "PassengerID", "PassengerID");
             return View();
         }
 
