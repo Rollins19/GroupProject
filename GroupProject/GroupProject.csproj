@@ -197,16 +197,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CancelFlightController.cs" />
     <Compile Include="Controllers\CheckFlightStatusController.cs" />
     <Compile Include="Controllers\FlightInfoesController.cs" />
-    <Compile Include="Controllers\FlightSelectionController.cs" />
     <Compile Include="Controllers\FlightUpdateStatusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MainConsumerController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManifestsController.cs" />
+    <Compile Include="Controllers\MyTicketsController.cs" />
     <Compile Include="Controllers\PassengerInfoesController.cs" />
     <Compile Include="Controllers\PaymentInfoesController.cs" />
+    <Compile Include="Controllers\PrintTicketsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -286,7 +288,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -344,7 +348,10 @@
     <Content Include="Views\CheckFlightStatus\CheckFlightStatus.cshtml" />
     <Content Include="Views\FlightUpdateStatus\FlightUpdateStatus.cshtml" />
     <Content Include="Views\FlightUpdateStatus\Edit.cshtml" />
-    <Content Include="Views\FlightSelection\FlightSelection.cshtml" />
+    <Content Include="Views\MyTickets\MyTickets.cshtml" />
+    <Content Include="Views\MyTickets\CancelFLight.cshtml" />
+    <Content Include="Views\PrintTickets\PrintTickets.cshtml" />
+    <Content Include="Views\CancelFlight\CancelFlight.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
