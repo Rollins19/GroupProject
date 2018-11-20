@@ -20,6 +20,9 @@ namespace GroupProject.Models
         public int SecurityCode { get; set; }
         public System.DateTime ExpirationDate { get; set; }
         public decimal TotalCost { get; set; }
-        public int CardNum { get; set; }
+        public int CradNum { get; set; }
+        public int ManifestID { get; set; }
+    
+        public virtual Manifest Manifest { get; set; }
     }
 }

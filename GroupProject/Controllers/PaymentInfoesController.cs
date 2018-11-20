@@ -17,7 +17,8 @@ namespace GroupProject.Controllers
         // GET: PaymentInfoes
         public ActionResult Index()
         {
-            return View(db.PaymentInfoes.ToList());
+            var paymentInfoes = db.PaymentInfoes.Include(p => p.Manifest);
+            return View(paymentInfoes.ToList());
         }
 
         // GET: PaymentInfoes/Details/5
@@ -38,6 +39,7 @@ namespace GroupProject.Controllers
         // GET: PaymentInfoes/Create
         public ActionResult Create()
         {
+            ViewBag.ManifestID = new SelectList(db.Manifests, "ManifestID", "SeatNum");
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace GroupProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TransactionNum,FirstName,LastName,SecurityCode,ExpirationDate,TotalCost,CardNum")] PaymentInfo paymentInfo)
+        public ActionResult Create([Bind(Include = "TransactionNum,FirstName,LastName,SecurityCode,ExpirationDate,TotalCost,CradNum,ManifestID")] PaymentInfo paymentInfo)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,7 @@ namespace GroupProject.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ManifestID = new SelectList(db.Manifests, "ManifestID", "SeatNum", paymentInfo.ManifestID);
             return View(paymentInfo);
         }
 
@@ -70,6 +73,7 @@ namespace GroupProject.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ManifestID = new SelectList(db.Manifests, "ManifestID", "SeatNum", paymentInfo.ManifestID);
             return View(paymentInfo);
         }
 
@@ -78,7 +82,7 @@ namespace GroupProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TransactionNum,FirstName,LastName,SecurityCode,ExpirationDate,TotalCost,CardNum")] PaymentInfo paymentInfo)
+        public ActionResult Edit([Bind(Include = "TransactionNum,FirstName,LastName,SecurityCode,ExpirationDate,TotalCost,CradNum,ManifestID")] PaymentInfo paymentInfo)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +90,7 @@ namespace GroupProject.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ManifestID = new SelectList(db.Manifests, "ManifestID", "SeatNum", paymentInfo.ManifestID);
             return View(paymentInfo);
         }
 

@@ -28,7 +28,10 @@
             @Html.DisplayNameFor(model => model.TotalCost)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CardNum)
+            @Html.DisplayNameFor(model => model.CradNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Manifest.SeatNum)
         </th>
         <th></th>
     </tr>
@@ -51,7 +54,10 @@
             @Html.DisplayFor(modelItem => item.TotalCost)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CardNum)
+            @Html.DisplayFor(modelItem => item.CradNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Manifest.SeatNum)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.TransactionNum }) |
