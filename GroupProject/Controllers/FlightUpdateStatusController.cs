@@ -12,17 +12,17 @@ namespace GroupProject.Controllers
 {
     public class FlightUpdateStatusController : Controller
     {
-
         GroupProject20181102032945_dbEntities1 db = new GroupProject20181102032945_dbEntities1();
+
         // GET: FlightUpdateStatus
+        [Authorize]
         public ActionResult FlightUpdateStatus()
         {
             return View(db.FlightInfoes.ToList());
         }
 
-        
-
-                // GET: FlightInfoes/Edit/5
+        // GET: FlightInfoes/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -53,7 +53,6 @@ namespace GroupProject.Controllers
             return View(flightInfo);
         }
 
-        
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -62,6 +61,5 @@ namespace GroupProject.Controllers
             }
             base.Dispose(disposing);
         }
-
     }
 }

@@ -15,12 +15,14 @@ namespace GroupProject.Controllers
         private GroupProject20181102032945_dbEntities1 db = new GroupProject20181102032945_dbEntities1();
 
         // GET: FlightInfoes
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.FlightInfoes.ToList());
         }
 
         // GET: FlightInfoes/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,6 +38,7 @@ namespace GroupProject.Controllers
         }
 
         // GET: FlightInfoes/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -59,6 +62,7 @@ namespace GroupProject.Controllers
         }
 
         // GET: FlightInfoes/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +94,7 @@ namespace GroupProject.Controllers
         }
 
         // GET: FlightInfoes/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)

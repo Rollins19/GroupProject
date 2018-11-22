@@ -10,7 +10,9 @@ namespace GroupProject.Controllers
     public class MyTicketsController : Controller
     {
         GroupProject20181102032945_dbEntities1 db = new GroupProject20181102032945_dbEntities1();
+
         // GET: MyTickets
+        [Authorize]
         public ActionResult MyTickets()
         {
             return View(db.FlightInfoes.ToList());

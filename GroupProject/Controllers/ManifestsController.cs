@@ -15,6 +15,7 @@ namespace GroupProject.Controllers
         private GroupProject20181102032945_dbEntities1 db = new GroupProject20181102032945_dbEntities1();
 
         // GET: Manifests
+        [Authorize]
         public ActionResult Index()
         {
             var manifests = db.Manifests.Include(m => m.FlightInfo).Include(m => m.PassengerInfo);
@@ -22,6 +23,7 @@ namespace GroupProject.Controllers
         }
 
         // GET: Manifests/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +39,7 @@ namespace GroupProject.Controllers
         }
 
         // GET: Manifests/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.FlightNum = new SelectList(db.FlightInfoes, "FlightNum", "FlightNum");
@@ -64,6 +67,7 @@ namespace GroupProject.Controllers
         }
 
         // GET: Manifests/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -99,6 +103,7 @@ namespace GroupProject.Controllers
         }
 
         // GET: Manifests/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)

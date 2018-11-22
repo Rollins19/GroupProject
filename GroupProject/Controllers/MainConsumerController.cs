@@ -17,6 +17,7 @@ namespace GroupProject.Controllers
          // public string ArrivalAirport { get; private set; }
 
           // GET: MainConsumer
+        [Authorize]
         public ActionResult MainConsumer()
         {
              ViewBag.DepartureDate = new SelectList(db.FlightInfoes, "FlightNum", "DepartureDate.date");
@@ -29,7 +30,7 @@ namespace GroupProject.Controllers
 
              return View();
         }
-
+        [Authorize]
         public List<FlightInfo> GetFlightInfoList()
         {
              GroupProject20181102032945_dbEntities1 db = new GroupProject20181102032945_dbEntities1();
