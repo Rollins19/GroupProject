@@ -354,6 +354,8 @@
     <Content Include="Views\PaymentInfoes\Edit.cshtml" />
     <Content Include="Views\PaymentInfoes\Index.cshtml" />
     <Content Include="Views\MainAdmin\MainAdmin.cshtml" />
+    <Content Include="Views\MyTickets\Delete.cshtml" />
+    <Content Include="Views\MyTickets\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
