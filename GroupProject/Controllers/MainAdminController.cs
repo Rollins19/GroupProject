@@ -9,8 +9,6 @@ namespace GroupProject.Controllers
 {
     public class MainAdminController : Controller
     {
-        
-      
         private GroupProject20181102032945_dbEntities1 db = new GroupProject20181102032945_dbEntities1();
 
         // GET: MainAdmin
