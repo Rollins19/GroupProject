@@ -115,6 +115,12 @@ namespace GroupProject.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize]
+        public ActionResult SeatSelection()
+        {
+            return View();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

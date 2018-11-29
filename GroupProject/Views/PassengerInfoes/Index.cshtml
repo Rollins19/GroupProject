@@ -24,23 +24,29 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DOB)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PassengerID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PassengerID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PassengerID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PassengerID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PassengerID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PassengerID }) |
+                @Html.ActionLink("Seat Selection", "Seat Selection", new { id = item.PassengerID })
+            </td>
+        </tr>
+    }
 
 </table>
+<div>
+    <input type="button" value="To Seat Selection" onclick="location.href='@Url.Action("SeatSelection", "SeatSelection")'"
+</div>
+

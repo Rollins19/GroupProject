@@ -9,7 +9,8 @@ namespace GroupProject.Controllers
     public class SeatSelectionController : Controller
     {
         // GET: SeatSelection
-        public ActionResult Index()
+        [Authorize]
+        public ActionResult SeatSelection()
         {
             return View();
         }
