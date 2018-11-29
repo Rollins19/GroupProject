@@ -4,5 +4,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>SeatSelection</h2>
+<h2>Seat Selection</h2>
 
+<body>
+    <img src="http://www.airwar.ru/image/idop/aliner/erj145/erj145-2.gif" alt="airwar.ru" style="width:300x;height:200px;">
+
+</body>
+
+<h3>Please enter your Seat Selection: </h3>
+
+<div>
+    <input type="text" />
+</div>
+
+<h6>Warning: If a seat is not selected, one will be assigned to you.</h6>
+
+<input type="button" value="Payment" onclick="location.href='@Url.Action("Create", "PaymentInfoes")'"

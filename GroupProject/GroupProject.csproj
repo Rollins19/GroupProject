@@ -290,6 +290,7 @@
     </EntityDeploy>
     <Content Include="Models\UpdatedModel.edmx.diagram">
       <DependentUpon>UpdatedModel.edmx</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <None Include="Properties\PublishProfiles\GroupProject20181102032945 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />

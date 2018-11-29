@@ -11,8 +11,9 @@ namespace GroupProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Manifest
+     using System.ComponentModel.DataAnnotations;
+
+     public partial class Manifest
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Manifest()
@@ -20,10 +21,15 @@ namespace GroupProject.Models
             this.PaymentInfoes = new HashSet<PaymentInfo>();
         }
     
+        [Display (Name = "Manifest Id")]
         public int ManifestID { get; set; }
+        [Display (Name = "Passenger Id")]
         public int PassengerID { get; set; }
+        [Display (Name = "Flight Number")]
         public int FlightNum { get; set; }
+        [Display (Name = "Ticket Number")]
         public int TicketNum { get; set; }
+        [Display (Name = "Seat Number")]
         public string SeatNum { get; set; }
     
         public virtual FlightInfo FlightInfo { get; set; }

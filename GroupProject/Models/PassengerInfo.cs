@@ -11,8 +11,9 @@ namespace GroupProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class PassengerInfo
+     using System.ComponentModel.DataAnnotations;
+
+     public partial class PassengerInfo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PassengerInfo()
@@ -20,9 +21,13 @@ namespace GroupProject.Models
             this.Manifests = new HashSet<Manifest>();
         }
     
+        [Display (Name = "Passenger Id")]
         public int PassengerID { get; set; }
+        [Display (Name = "Firest Name")]
         public string FirstName { get; set; }
+        [Display (Name = "Last Name")]
         public string LastName { get; set; }
+        [Display (Name = "Date of Birth")]
         public System.DateTime DOB { get; set; }
         public string Id { get; set; }
     
