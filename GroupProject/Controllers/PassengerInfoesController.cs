@@ -15,12 +15,14 @@ namespace GroupProject.Controllers
         private GroupProject20181102032945_dbEntities1 db = new GroupProject20181102032945_dbEntities1();
 
         // GET: PassengerInfoes
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.PassengerInfoes.ToList());
         }
 
         // GET: PassengerInfoes/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,6 +38,7 @@ namespace GroupProject.Controllers
         }
 
         // GET: PassengerInfoes/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -59,6 +62,7 @@ namespace GroupProject.Controllers
         }
 
         // GET: PassengerInfoes/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +94,7 @@ namespace GroupProject.Controllers
         }
 
         // GET: PassengerInfoes/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)

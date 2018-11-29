@@ -11,6 +11,7 @@ namespace GroupProject.Controllers
     {
         GroupProject20181102032945_dbEntities1 db = new GroupProject20181102032945_dbEntities1();
         // GET: PrintTickets
+        [Authorize]
         public ActionResult PrintTickets()
         {
             return View();

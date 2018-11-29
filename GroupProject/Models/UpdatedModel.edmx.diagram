@@ -12,6 +12,14 @@
         <AssociationConnector Association="GroupProject20181102032945_dbModel.FK_Manifest_PassengerInfo" ManuallyRouted="false" />
         <EntityTypeShape EntityType="GroupProject20181102032945_dbModel.PaymentInfo" Width="1.5" PointX="7.5" PointY="1.625" />
         <AssociationConnector Association="GroupProject20181102032945_dbModel.FK_Payment_Manifest1" />
+        <EntityTypeShape EntityType="GroupProject20181102032945_dbModel.AspNetRole" Width="1.5" PointX="6.25" PointY="11.625" />
+        <EntityTypeShape EntityType="GroupProject20181102032945_dbModel.AspNetUserClaim" Width="1.5" PointX="10.75" PointY="12.375" />
+        <EntityTypeShape EntityType="GroupProject20181102032945_dbModel.AspNetUserLogin" Width="1.5" PointX="10.75" PointY="15.125" />
+        <EntityTypeShape EntityType="GroupProject20181102032945_dbModel.AspNetUser" Width="1.5" PointX="9.75" PointY="1" />
+        <AssociationConnector Association="GroupProject20181102032945_dbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="GroupProject20181102032945_dbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="GroupProject20181102032945_dbModel.FK_PassengerInfo_AspNetUsers" />
+        <AssociationConnector Association="GroupProject20181102032945_dbModel.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -29,5 +29,9 @@ namespace GroupProject.Models
         public virtual DbSet<Manifest> Manifests { get; set; }
         public virtual DbSet<PassengerInfo> PassengerInfoes { get; set; }
         public virtual DbSet<PaymentInfo> PaymentInfoes { get; set; }
+        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
     }
 }

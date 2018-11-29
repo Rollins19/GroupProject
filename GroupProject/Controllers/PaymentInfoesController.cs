@@ -15,6 +15,7 @@ namespace GroupProject.Controllers
         private GroupProject20181102032945_dbEntities1 db = new GroupProject20181102032945_dbEntities1();
 
         // GET: PaymentInfoes
+        [Authorize]
         public ActionResult Index()
         {
             var paymentInfoes = db.PaymentInfoes.Include(p => p.Manifest);
@@ -22,6 +23,7 @@ namespace GroupProject.Controllers
         }
 
         // GET: PaymentInfoes/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +39,7 @@ namespace GroupProject.Controllers
         }
 
         // GET: PaymentInfoes/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.ManifestID = new SelectList(db.Manifests, "ManifestID", "SeatNum");
@@ -62,6 +65,7 @@ namespace GroupProject.Controllers
         }
 
         // GET: PaymentInfoes/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -95,6 +99,7 @@ namespace GroupProject.Controllers
         }
 
         // GET: PaymentInfoes/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
