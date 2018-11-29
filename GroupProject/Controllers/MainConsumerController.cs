@@ -10,21 +10,39 @@ using GroupProject.Models;
 
 namespace GroupProject.Controllers
 {
-     public class MainConsumerController : Controller
-     {
+    public class MainConsumerController : Controller
+    {
           private GroupProject20181102032945_dbEntities1 db = new GroupProject20181102032945_dbEntities1();
 
-          // public string ArrivalAirport { get; private set; }
+         // public string ArrivalAirport { get; private set; }
 
           // GET: MainConsumer
-          [Authorize]
-          public ActionResult MainConsumer()
-          {
-               ViewBag.DepartureDate = new SelectList(db.FlightInfoes, "FlightNum", "DepartureDate.date");
-               ViewBag.ArrivalAirport = new SelectList(db.FlightInfoes, "FlightNum", "ArrivalAirport");
-               ViewBag.FlightCapacity = new SelectList(db.FlightInfoes, "FlightNum", "FlightCapacity");
+        [Authorize]
+        public ActionResult MainConsumer()
+        {
+             ViewBag.DepartureDate = new SelectList(db.FlightInfoes, "FlightNum", "DepartureDate.date");
+             ViewBag.ArrivalAirport = new SelectList(db.FlightInfoes, "FlightNum", "ArrivalAirport");
+             ViewBag.FlightCapacity = new SelectList(db.FlightInfoes, "FlightNum", "FlightCapacity");
+             ViewBag.DepartureDateList = new SelectList( GetFlightInfoList(), "FlightNum", "DepartureDate");
+             ViewBag.ArrivalAirportList = new SelectList(GetFlightInfoList(), "FlightNum", "ArrivalAirport");
+             ViewBag.FlightCapacityList = new SelectList(GetFlightInfoList(), "FlightNum", "FlightCapacity");
+             ViewBag.FlightCapacityList = new SelectList(GetFlightInfoList(), "FlightNum", "FlightCapacity");
 
-               return View();
-          }
-     } 
+             return View();
+        }
+        [Authorize]
+        public List<FlightInfo> GetFlightInfoList()
+        {
+             GroupProject20181102032945_dbEntities1 db = new GroupProject20181102032945_dbEntities1();
+             List<FlightInfo> flightInfoes = db.FlightInfoes.ToList();
+             return flightInfoes;
+        }
+          /*
+        public List<FlightInfo> GetArrivalAirportList(int FlightNum)
+        {
+             GroupProject20181102032945_dbEntities db = new GroupProject20181102032945_dbEntities();
+             List<FlightInfo> arrivalAirportList = db.FlightInfoes.Where(x => x.ArrivalAirport == ArrivalAirport).ToList();
+             return arrivalAirportList;
+        }*/
+    }
 }
