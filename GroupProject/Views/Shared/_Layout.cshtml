@@ -72,11 +72,13 @@
 
     <section>
         <nav>
-            <ul>
-                <li>@Html.ActionLink("Welcome to Breezy Airlines", "MainConsumer", "MainConsumer", new { area = "" }, new { @class = "navbar-brand" })</li>
-                <li>@Html.ActionLink("About", "About", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-            </ul>
+             <ul>
+                  <li>@Html.ActionLink("Welcome to Breezy Airlines", "MainConsumer", "MainConsumer", new { area = "" }, new { @class = "navbar-brand" })</li>
+                  <li>@Html.ActionLink("About", "About", "Home")</li>
+                  <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                  <li>@Html.ActionLink("My Flights", "CheckFlightStatus", "CheckFlightStatus")</li>
+                  <li>@Html.ActionLink("My Tickets", "MyTickets", "MyTickets")</li>
+             </ul>
         </nav>
 
         <article>
