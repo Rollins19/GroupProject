@@ -200,6 +200,7 @@
     <Compile Include="Controllers\CancelFlightController.cs" />
     <Compile Include="Controllers\CheckFlightStatusController.cs" />
     <Compile Include="Controllers\FlightInfoesController.cs" />
+    <Compile Include="Controllers\FlightSelection2Controller.cs" />
     <Compile Include="Controllers\FlightUpdateStatusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MainAdminController.cs" />
@@ -371,9 +372,11 @@
     <Content Include="Views\MyTickets\Delete.cshtml" />
     <Content Include="Views\MyTickets\Details.cshtml" />
     <Content Include="Views\SeatSelection\SeatSelection.cshtml" />
+    <Content Include="Views\FlightSelection2\FlightSelection2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\FlightController\" />
     <Folder Include="Views\Role\" />
   </ItemGroup>
   <ItemGroup>
