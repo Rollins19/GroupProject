@@ -9,13 +9,11 @@ namespace GroupProject.Controllers
 {
     public class MainAdminController : Controller
     {
-        // GET: MainAdmin
+        
       
         private GroupProject20181102032945_dbEntities1 db = new GroupProject20181102032945_dbEntities1();
 
-        // public string ArrivalAirport { get; private set; }
-
-        // GET: MainConsumer
+        // GET: MainAdmin
         [Authorize]
         public ActionResult MainAdmin()
         {
