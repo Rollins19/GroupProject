@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "PrintTickets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Print Tickets</h2>
+
+<h3>Your ticket has been successfully printed!</h3>
+<div>
+    <input type="button" value="Return to Your Tickets" onclick="location.href='@Url.Action("MyTickets", "MyTickets")'"
+</div>

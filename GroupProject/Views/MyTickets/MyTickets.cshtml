@@ -26,15 +26,12 @@
             @Html.DisplayNameFor(model => model.DepartureDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FlightCapacity)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.SingleTicketPrice)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FlightStatus)
         </th>
-        <th></th>
+        
     </tr>
 
 @foreach (var item in Model) {
@@ -58,18 +55,15 @@
             @Html.DisplayFor(modelItem => item.FlightCapacity)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SingleTicketPrice)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.FlightStatus)
         </td>
         <td>
-            <input type="button" value="Cancel Flight" onclick="location.href='@Url.Action("CancelFlight", "CancelFlight")'"
+            @Html.ActionLink("Cancel Flight", "Delete", new { id = item.FlightNum }) 
         </td>
         <td>
-            <input type="button" value="Print Ticket" onclick="location.href='@Url.Action("PrintTickets", "PrintTickets")'"
+            @Html.ActionLink("Print Ticket", "Details", new { id = item.FlightNum })
         </td>
-       
+        
 
     </tr>
 }
