@@ -210,6 +210,7 @@
     <Compile Include="Controllers\PassengerInfoesController.cs" />
     <Compile Include="Controllers\PaymentInfoesController.cs" />
     <Compile Include="Controllers\PrintTicketsController.cs" />
+    <Compile Include="Controllers\SeatSelectionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -356,6 +357,7 @@
     <Content Include="Views\MainAdmin\MainAdmin.cshtml" />
     <Content Include="Views\MyTickets\Delete.cshtml" />
     <Content Include="Views\MyTickets\Details.cshtml" />
+    <Content Include="Views\SeatSelection\SeatSelection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
