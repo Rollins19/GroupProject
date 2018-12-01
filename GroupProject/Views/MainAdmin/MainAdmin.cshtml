@@ -15,6 +15,17 @@
 
 <h2>Search For a Flight</h2>
 
+<nav>
+     <ul>
+          <li>@Html.ActionLink("Welcome to Breezy Airlines", "MainConsumer", "MainConsumer", new { area = "" }, new { @class = "navbar-brand" })</li>
+          <li>@Html.ActionLink("About", "About", "Home")</li>
+          <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+          <li>@Html.ActionLink("My Flights", "CheckFlightStatus", "CheckFlightStatus")</li>
+          <li>@Html.ActionLink("My Tickets", "MyTickets", "MyTickets")</li>
+          <li>@Html.ActionLink("Add Flights", "Create", "FlightInfoes")</li>
+          <li>@Html.ActionLink("Update Flight Status", "FlightUpdateStatus", "FlightUpdateStatus")</li>
+     </ul>
+</nav>
 
 <div>
      @Html.LabelFor(Model => Model.DepartureDate, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -28,12 +39,12 @@
      @Html.LabelFor(Model => Model.ArrivalAirport, htmlAttributes: new { @class = "control-label col-md-2" })
      @Html.DropDownListFor(m => m.FlightNum, ViewBag.ArrivalAirportList as SelectList, "--Select Arrival Airport--", new { @class = "form-control" })
      @Html.ValidationMessageFor(model => model.ArrivalAirport, "", new { @class = "text-danger" })
-     @Html.LabelFor(Model => Model.FlightCapacity, htmlAttributes: new { @class = "control-label col-md-2" })
-     @Html.DropDownListFor(m => m.FlightNum, ViewBag.FlightCapacityList as SelectList, "--Select Number of Passengers--", new { @class = "form-control" })<!--I prefer the other one at the bottom-->
-     <input type="button" value="Search" onclick="location.href='@Url.Action("Create", "FlightInfoes")'" /> <!--Should send to Flight Selection page when complete-->
+
+
+     <input type="button" value="Search" onclick="location.href='@Url.Action("FlightSelection2", "FlightSelection2")'" /> <!--Should send to Flight Selection page when complete-->
 </div>
 
-<!--
+<!--  This was an attempt to create a cascading drop-down list
 
 <script>
      $(document).ready(function () {

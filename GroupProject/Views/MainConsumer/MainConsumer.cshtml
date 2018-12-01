@@ -18,12 +18,10 @@
      @Html.LabelFor(Model => Model.ArrivalAirport, htmlAttributes: new { @class = "control-label col-md-2" })
      @Html.DropDownListFor(m => m.FlightNum, ViewBag.ArrivalAirportList as SelectList, "--Select Arrival Airport--", new { @class = "form-control" })
      @Html.ValidationMessageFor(model => model.ArrivalAirport, "", new { @class = "text-danger" })
-     @Html.LabelFor(Model => Model.FlightCapacity, htmlAttributes: new { @class = "control-label col-md-2" })
-     @Html.DropDownListFor(m => m.FlightNum, ViewBag.FlightCapacityList as SelectList, "--Select Number of Passengers--", new { @class = "form-control" })<!--I prefer the other one at the bottom-->
-     <input type="button" value="Search" onclick="location.href='@Url.Action("Create", "FlightInfoes")'" />
+     <input type="button" value="Search" onclick="location.href='@Url.Action("FlightSelection2", "FlightSelection2")'" />
 </div>
 
-<!--
+<!-- This was an attempt to create a cascading drop-down list
 
 <script>
      $(document).ready(function () {
