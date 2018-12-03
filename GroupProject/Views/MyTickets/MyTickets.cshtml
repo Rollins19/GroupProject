@@ -10,6 +10,7 @@
 
 <table class="table">
     <tr>
+        
         <th>
             @Html.DisplayNameFor(model => model.DepartureAirport)
         </th>
@@ -36,34 +37,36 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartureAirport)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ArrivalAirport)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartureTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ArrivalTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartureDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FlightCapacity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FlightStatus)
-        </td>
-        <td>
-            @Html.ActionLink("Cancel Flight", "Delete", new { id = item.FlightNum }) 
-        </td>
-        <td>
-            @Html.ActionLink("Print Ticket", "Details", new { id = item.FlightNum })
-        </td>
-        
+        @if (!(item.FlightStatus.Equals("Canceld")))
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureAirport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArrivalAirport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArrivalTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightCapacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightStatus)
+            </td>
+            <td>
+                @Html.ActionLink("Cancel Flight", "Delete", new { id = item.FlightNum })
+            </td>
+            <td>
+                @Html.ActionLink("Print Ticket", "Details", new { id = item.FlightNum })
+            </td>
+        }
 
     </tr>
 }
