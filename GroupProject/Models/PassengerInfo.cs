@@ -23,7 +23,7 @@ namespace GroupProject.Models
     
         [Display (Name = "Passenger Id")]
         public int PassengerID { get; set; }
-        [Display (Name = "Firest Name")]
+        [Display (Name = "First Name")]
         public string FirstName { get; set; }
         [Display (Name = "Last Name")]
         public string LastName { get; set; }

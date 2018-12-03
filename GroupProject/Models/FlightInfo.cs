@@ -27,9 +27,9 @@ namespace GroupProject.Models
         public string DepartureAirport { get; set; }
         [Display(Name = "Arrival Airport")]
         public string ArrivalAirport { get; set; }
-        [Display(Name = "Departure Time")]
+        [Display(Name = "Departure Time(24Hr)")]
         public System.TimeSpan DepartureTime { get; set; }
-        [Display(Name = "Arrival Time")]
+        [Display(Name = "Arrival Time(24Hr)")]
         public System.TimeSpan ArrivalTime { get; set; }
         [Display(Name = "Departure Date")]
         public System.DateTime DepartureDate { get; set; }

@@ -15,17 +15,8 @@
 
 <h2>Search For a Flight</h2>
 
-<nav>
-     <ul>
-          <li>@Html.ActionLink("Welcome to Breezy Airlines", "MainConsumer", "MainConsumer", new { area = "" }, new { @class = "navbar-brand" })</li>
-          <li>@Html.ActionLink("About", "About", "Home")</li>
-          <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-          <li>@Html.ActionLink("My Flights", "CheckFlightStatus", "CheckFlightStatus")</li>
-          <li>@Html.ActionLink("My Tickets", "MyTickets", "MyTickets")</li>
-          <li>@Html.ActionLink("Add Flights", "Create", "FlightInfoes")</li>
-          <li>@Html.ActionLink("Update Flight Status", "FlightUpdateStatus", "FlightUpdateStatus")</li>
-     </ul>
-</nav>
+<!--We decided, in the end, to put all tabs including admin tabs in the shared layout because we couldn't 
+     define roles and separate users from admin-->
 
 <div>
      @Html.LabelFor(Model => Model.DepartureDate, htmlAttributes: new { @class = "control-label col-md-2" })
