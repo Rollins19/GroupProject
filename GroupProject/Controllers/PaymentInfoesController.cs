@@ -42,7 +42,7 @@ namespace GroupProject.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.ManifestID = new SelectList(db.Manifests, "ManifestID", "SeatNum");
+            ViewBag.ManifestID = new SelectList(db.Manifests, "ManifestID", "ManifestID");
             return View();
         }
 

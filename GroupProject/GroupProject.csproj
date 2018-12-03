@@ -353,11 +353,6 @@
     <Content Include="Views\MyTickets\CancelFLight.cshtml" />
     <Content Include="Views\PrintTickets\PrintTickets.cshtml" />
     <Content Include="Views\CancelFlight\CancelFlight.cshtml" />
-    <Content Include="Views\Manifests\Create.cshtml" />
-    <Content Include="Views\Manifests\Delete.cshtml" />
-    <Content Include="Views\Manifests\Details.cshtml" />
-    <Content Include="Views\Manifests\Edit.cshtml" />
-    <Content Include="Views\Manifests\Index.cshtml" />
     <Content Include="Views\PassengerInfoes\Create.cshtml" />
     <Content Include="Views\PassengerInfoes\Delete.cshtml" />
     <Content Include="Views\PassengerInfoes\Details.cshtml" />
@@ -373,6 +368,11 @@
     <Content Include="Views\MyTickets\Details.cshtml" />
     <Content Include="Views\SeatSelection\SeatSelection.cshtml" />
     <Content Include="Views\FlightSelection2\FlightSelection2.cshtml" />
+    <Content Include="Views\Manifests\Create.cshtml" />
+    <Content Include="Views\Manifests\Delete.cshtml" />
+    <Content Include="Views\Manifests\Details.cshtml" />
+    <Content Include="Views\Manifests\Edit.cshtml" />
+    <Content Include="Views\Manifests\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
