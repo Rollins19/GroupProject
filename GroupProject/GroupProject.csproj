@@ -373,6 +373,7 @@
     <Content Include="Views\Manifests\Details.cshtml" />
     <Content Include="Views\Manifests\Edit.cshtml" />
     <Content Include="Views\Manifests\Index.cshtml" />
+    <Content Include="Views\PaymentInfoes\PaymentConfirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

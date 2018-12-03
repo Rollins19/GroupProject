@@ -1,0 +1,10 @@
+﻿
+@{
+     ViewBag.Title = "PaymentConfirmation";
+     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Your transaction has been successfully completed. Thank you!</h3>
+<div>
+     <input type="button" value="Return to Search" onclick="location.href='@Url.Action("MainConsumer", "MainConsumer")'" />
+</div>

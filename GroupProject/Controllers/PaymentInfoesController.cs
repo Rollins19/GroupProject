@@ -14,6 +14,14 @@ namespace GroupProject.Controllers
     {
         private GroupProject20181102032945_dbEntities1 db = new GroupProject20181102032945_dbEntities1();
 
+        [Authorize]
+        public ActionResult PaymentConfirmation()
+        {
+            return View();
+        }
+    
+
+
         // GET: PaymentInfoes
         [Authorize]
         public ActionResult Index()
@@ -57,7 +65,7 @@ namespace GroupProject.Controllers
             {
                 db.PaymentInfoes.Add(paymentInfo);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("PaymentConfirmation");
             }
 
             ViewBag.ManifestID = new SelectList(db.Manifests, "ManifestID", "SeatNum", paymentInfo.ManifestID);
