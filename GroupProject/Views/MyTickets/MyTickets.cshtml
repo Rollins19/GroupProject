@@ -37,7 +37,7 @@
 
 @foreach (var item in Model) {
     <tr>
-        @if (!(item.FlightStatus.Equals("Canceld")))
+        @if (!(item.FlightStatus.Equals("Cancelled")))
         {
             <td>
                 @Html.DisplayFor(modelItem => item.DepartureAirport)
